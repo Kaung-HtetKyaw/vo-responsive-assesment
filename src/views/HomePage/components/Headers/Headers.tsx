@@ -26,7 +26,7 @@ const Headers = () => {
             />
             <SearchIcon />
           </div>
-          <div className="hidden lg:hidden">
+          <div className="hidden lg:block">
             <div className="flex items-center justify-center p-[10px]">
               {' '}
               <MenuToggle toggle={() => toggleOpen()} />
@@ -44,9 +44,9 @@ const Headers = () => {
         />
         <SearchIcon />
       </div>
-      <div className="flex items-center justify-center col-span-2 xs:col-span-3 ">
-        <div>
-          <div className="flex items-center justify-center p-[10px]">
+      <div className="flex items-center justify-end lg:justify-center col-span-2 xs:col-span-3 ">
+        <div className="block lg:hidden">
+          <div className="flex items-center justify-end lg:justify-center p-[10px]">
             {' '}
             <MenuToggle toggle={() => onToggleOpen()} />
           </div>
