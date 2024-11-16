@@ -1,0 +1,199 @@
+/* Configure all fonts here */
+
+@font-face {
+  font-family: 'SF';
+  src: url('../../fonts/SF-Pro-Text-Regular.otf') format('truetype');
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'SF';
+  src: url('../../fonts/SF-Pro-Text-Bold.otf') format('truetype');
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: 'SF';
+  src: url('../../fonts/SF-Pro-Text-RegularItalic.otf') format('truetype');
+  font-weight: 700;
+  font-style: italic;
+}
+
+/* @font-face {
+  font-family: "Palatino Linotype";
+  src: url("../fonts/pala-regular.ttf") format("truetype");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Palatino Linotype";
+  src: url("../fonts/pala-bold.ttf") format("truetype");
+  font-weight: 700;
+} */
+
+:root {
+  --min-vw: 640;
+  --max-vw: 1920;
+
+  /* convert to px */
+  --min-vw-px: calc(var(--min-vw) * 1px);
+  --max-vw-px: calc(var(--max-vw) * 1px);
+
+  /* font sizes at --max-vw */
+  --text-big: 120;
+  --text-h1: 64;
+  --text-h2: 48;
+  --text-midh2: 40;
+  --text-h3: 32;
+  --text-h4: 28;
+  --text-h5: 24;
+  --text-h6: 20;
+  --text-body-1: 20;
+  --text-body-2: 18;
+  --text-body-3: 16;
+  --text-base: 16;
+  --text-sm: 14;
+
+  /* font sizes at --min-vw */
+  --text-big-min: calc(var(--text-big) * 0.525);
+  --text-h1-min: calc(var(--text-h1) * 0.425);
+  --text-h2-min: calc(var(--text-h2) * 0.5);
+  --text-midh2-min: calc(var(--text-midh2) * 0.55);
+  --text-h3-min: calc(var(--text-h3) * 0.6);
+  --text-h4-min: calc(var(--text-h4) * 0.7);
+  --text-h5-min: calc(var(--text-h5) * 0.75);
+  --text-h6-min: calc(var(--text-h6) * 0.75);
+  --text-body-1-min: calc(var(--text-body-1) * 0.7);
+  --text-body-2-min: calc(var(--text-body-2) * 0.75);
+  --text-body-3-min: calc(var(--text-body-3) * 0.75);
+  --text-base-min: 14;
+  --text-sm-min: 12;
+}
+body {
+  @apply font-primary;
+}
+
+@layer components {
+  .font-primary {
+    font-family: 'Palatino Linotype', serif;
+  }
+
+  .fluid-fs {
+    --max-fs: var(--text-base);
+    --min-fs: var(--text-base-min);
+
+    --slope: calc(
+      (var(--max-fs) - var(--min-fs)) / (var(--max-vw) - var(--min-vw))
+    );
+
+    --min-fs-px: calc(var(--min-fs) * 1px);
+    --max-fs-px: calc(var(--max-fs) * 1px);
+    --fs-px: calc(var(--slope) * (100vw - var(--min-vw-px)) + var(--min-fs-px));
+
+    font-size: clamp(var(--min-fs-px), var(--fs-px), var(--max-fs-px));
+  }
+
+  .bigHeading {
+    @apply fluid-fs;
+
+    --max-fs: var(--text-big);
+    --min-fs: var(--text-big-min);
+    line-height: 1.5;
+  }
+
+  .heading1 {
+    @apply fluid-fs;
+
+    --max-fs: var(--text-h1);
+    --min-fs: var(--text-h1-min);
+    line-height: 1.5;
+  }
+
+  .heading2 {
+    @apply fluid-fs;
+
+    --max-fs: var(--text-h2);
+    --min-fs: var(--text-h2-min);
+    line-height: 1.5;
+  }
+
+  .midheading2 {
+    @apply fluid-fs;
+
+    --max-fs: var(--text-midh2);
+    --min-fs: var(--text-midh2-min);
+    line-height: 1.5;
+  }
+
+  .heading3 {
+    @apply fluid-fs;
+
+    --max-fs: var(--text-h3);
+    --min-fs: var(--text-h3-min);
+    line-height: 1.25;
+  }
+
+  .heading4 {
+    @apply fluid-fs;
+
+    --max-fs: var(--text-h4);
+    --min-fs: var(--text-h4-min);
+    line-height: 1.25;
+  }
+
+  .heading5 {
+    @apply fluid-fs;
+
+    --max-fs: var(--text-h5);
+    --min-fs: var(--text-h5-min);
+    line-height: 1.5;
+  }
+
+  .heading6 {
+    @apply fluid-fs;
+
+    --max-fs: var(--text-h6);
+    --min-fs: var(--text-h6-min);
+    line-height: 1.5;
+  }
+
+  .text-body-1 {
+    @apply fluid-fs;
+
+    --max-fs: var(--text-body-1);
+    --min-fs: var(--text-body-1-min);
+    line-height: 1.5;
+  }
+
+  .text-body-2 {
+    @apply fluid-fs;
+
+    --max-fs: var(--text-body-2);
+    --min-fs: var(--text-body-2-min);
+    line-height: 1.5;
+  }
+
+  .text-body-3 {
+    @apply fluid-fs;
+
+    --max-fs: var(--text-body-3);
+    --min-fs: var(--text-body-3-min);
+    line-height: 1.5;
+  }
+
+  .text-base {
+    @apply fluid-fs;
+
+    --max-fs: var(--text-base);
+    --min-fs: var(--text-base-min);
+    line-height: 20px;
+  }
+
+  .text-sm {
+    @apply fluid-fs;
+
+    --max-fs: var(--text-sm);
+    --min-fs: var(--text-sm-min);
+    line-height: 20px;
+  }
+}
